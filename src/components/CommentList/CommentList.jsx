@@ -5,8 +5,11 @@ export const CommentList = ({ comments }) =>
     <b data-cy="NoCommentsMessage">No comments yet</b>
   ) : (
     <div className="CommentList">
-      {comments.map(comment => (
-        <CommentInfo comment={comment} key={comment.id} />
+      {comments.map((comment, index) => (
+        <div key={comment.id}>
+          <CommentInfo comment={comment} />
+          {index < comments.length - 1 && <hr />}
+        </div>
       ))}
     </div>
   );
